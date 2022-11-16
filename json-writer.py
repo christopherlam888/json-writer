@@ -5,7 +5,6 @@ try:
 except:
     print("File already exists.")
     quit()
-dataName = input("Enter the data name: ").strip()
 fields = []
 data = []
 userInput = "y"
@@ -19,8 +18,7 @@ while userInput == "y" or userInput == "Y":
         entry.append(input(f"{fields[i]}: ").strip())
     data.append(entry)
     userInput = input("Add another entry? Enter y or Y to continue or any other key to finish. ").strip()
-file.write("{\n")
-file.write(f"\"{dataName}\": [\n")
+file.write("[\n")
 for i in range(len(data)):
     file.write("\t{\n")
     for j in range(len(fields)):
@@ -32,6 +30,6 @@ for i in range(len(data)):
     if i != len(data)-1:
         file.write(",")
     file.write("\n")
-file.write("]}\n")
+file.write("]\n")
 file.close()
 print("File written!\n")
